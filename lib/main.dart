@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/from_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +38,11 @@ class _MyHomePageState extends State<MyHomePage> {
           actions: [
             IconButton(
               icon: Icon(Icons.access_alarm),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return fromscreen();
+                }));
+              },
             )
           ],
         ),
