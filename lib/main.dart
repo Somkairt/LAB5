@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/provider/transection_Provider.dart';
 import 'package:flutter_application_1/screens/from_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +11,22 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Liew',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) {
+          return transectionProvider();
+        }),
+        ChangeNotifierProvider(create: (context) {
+          return transectionProvider();
+        })
+      ],
+      child: MaterialApp(
+        title: 'Liew',
+        theme: ThemeData(
+          primarySwatch: Colors.yellow,
+        ),
+        home: const MyHomePage(title: 'แอพการเงิน'),
       ),
-      home: const MyHomePage(title: 'แอพการเงิน'),
     );
   }
 }
