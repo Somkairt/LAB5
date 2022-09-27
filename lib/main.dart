@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Text("500"),
                     ),
                   ),
-                  title: Text("เมนู"),
+                  title: Text("รายการ"),
                   subtitle: Text("02/01/2022"),
                 ),
               );
