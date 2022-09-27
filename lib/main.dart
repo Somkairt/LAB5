@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/model/transection.dart';
 import 'package:flutter_application_1/provider/transection_Provider.dart';
 import 'package:flutter_application_1/screens/from_screen.dart';
 import 'package:provider/provider.dart';
@@ -13,9 +14,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) {
-          return transectionProvider();
-        }),
         ChangeNotifierProvider(create: (context) {
           return transectionProvider();
         })
@@ -58,23 +56,26 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
-        body: ListView.builder(
-            itemCount: 5,
-            itemBuilder: (context, int index) {
-              return Card(
-                elevation: 5,
-                margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 4),
-                child: ListTile(
-                  tileColor: Colors.brown,
-                  leading: CircleAvatar(
-                    child: FittedBox(
-                      child: Text("500"),
+        body: Consumer(builder: (context, transectionProvider Provider, child) {
+          return ListView.builder(
+              itemCount: Provider.transections.length,
+              itemBuilder: (context, int index) {
+                return Card(
+                  elevation: 5,
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 4),
+                  child: ListTile(
+                    tileColor: Colors.brown,
+                    leading: CircleAvatar(
+                      child: FittedBox(
+                        child: Text("500"),
+                      ),
                     ),
+                    title: Text("รายการ"),
+                    subtitle: Text("02/01/2022"),
                   ),
-                  title: Text("รายการ"),
-                  subtitle: Text("02/01/2022"),
-                ),
-              );
-            }));
+                );
+              });
+        }));
   }
 }
