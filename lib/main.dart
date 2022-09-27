@@ -60,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
           return ListView.builder(
               itemCount: Provider.transections.length,
               itemBuilder: (context, int index) {
+                transection data = Provider.transections[index];
                 return Card(
                   elevation: 5,
                   margin:
@@ -68,11 +69,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     tileColor: Colors.brown,
                     leading: CircleAvatar(
                       child: FittedBox(
-                        child: Text("500"),
+                        child: Text(data.amount.toString()),
                       ),
                     ),
-                    title: Text("รายการ"),
-                    subtitle: Text("02/01/2022"),
+                    title: Text(data.title),
+                    subtitle: Text(data.date.toString()),
                   ),
                 );
               });
