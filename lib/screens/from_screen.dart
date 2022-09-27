@@ -7,8 +7,29 @@ class fromscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Page2"),
+          title: Text("แบบฟอร์มบันทึกข้อมูล"),
         ),
-        body: Container());
+        body: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Form(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextFormField(
+                  decoration: new InputDecoration(labelText: "ชื่อรายการ"),
+                ),
+                TextFormField(
+                  decoration: new InputDecoration(labelText: "จำนวนเงิน"),
+                ),
+                FlatButton(
+                  child: Text("เพิ่มข้อมูล"),
+                  color: Color.fromARGB(255, 28, 255, 36),
+                  textColor: Colors.black,
+                  onPressed: () {},
+                )
+              ],
+            ),
+          ),
+        ));
   }
 }
