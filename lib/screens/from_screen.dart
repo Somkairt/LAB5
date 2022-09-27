@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 class fromscreen extends StatelessWidget {
@@ -17,15 +19,19 @@ class fromscreen extends StatelessWidget {
               children: [
                 TextFormField(
                   decoration: new InputDecoration(labelText: "ชื่อรายการ"),
+                  autofocus: true,
                 ),
                 TextFormField(
                   decoration: new InputDecoration(labelText: "จำนวนเงิน"),
+                  keyboardType: TextInputType.number,
                 ),
                 FlatButton(
                   child: Text("เพิ่มข้อมูล"),
                   color: Color.fromARGB(255, 28, 255, 36),
                   textColor: Colors.black,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                 )
               ],
             ),
